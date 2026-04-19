@@ -1,0 +1,32 @@
+# ── Maven ────────────────────────────────────────────────────
+backend/target/
+backend/*.log
+*.class
+*.jar
+*.war
+*.ear
+
+# ── Node ─────────────────────────────────────────────────────
+frontend/node_modules/
+frontend/build/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+npm-debug.log*
+
+# ── IDE ──────────────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ── OS ───────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── SEGURIDAD: nunca subir credenciales reales ───────────────
+backend/src/main/resources/application.properties
