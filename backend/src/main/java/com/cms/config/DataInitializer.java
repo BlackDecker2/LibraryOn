@@ -1,3 +1,18 @@
+package com.cms.config;
+
+import com.cms.model.ERole;
+import com.cms.model.Role;
+import com.cms.model.User;
+import com.cms.repository.RoleRepository;
+import com.cms.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
+
+import java.util.Set;
+
 @Component
 @RequiredArgsConstructor
 @Slf4j
@@ -9,12 +24,6 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-
-        // 🔒 Evita doble inicialización
-        if (roleRepository.count() > 0) {
-            log.info("BD ya inicializada, se omite seed");
-            return;
-        }
 
         Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
                 .orElseGet(() -> roleRepository.save(new Role(ERole.ROLE_ADMIN)));
@@ -36,6 +45,6 @@ public class DataInitializer implements CommandLineRunner {
             userRepository.save(editor);
         }
 
-        log.info("Inicialización completada correctamente");
+        log.info("Data inicializada correctamente");
     }
 }
