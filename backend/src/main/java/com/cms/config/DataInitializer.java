@@ -16,6 +16,7 @@ import java.util.Set;
 @Component
 @RequiredArgsConstructor
 @Slf4j
+@DependsOn("entityManagerFactory")
 public class DataInitializer implements CommandLineRunner {
 
     private final RoleRepository roleRepository;
