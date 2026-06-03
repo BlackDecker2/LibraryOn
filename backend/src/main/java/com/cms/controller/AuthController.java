@@ -23,8 +23,8 @@ public class AuthController {
     @PostMapping("/login")
     @Operation(summary = "Iniciar sesión — retorna JWT")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Login exitoso"),
-        @ApiResponse(responseCode = "401", description = "Credenciales inválidas")
+            @ApiResponse(responseCode = "200", description = "Login exitoso"),
+            @ApiResponse(responseCode = "401", description = "Credenciales inválidas")
     })
     public ResponseEntity<AuthDtos.JwtResponse> login(
             @Valid @RequestBody AuthDtos.LoginRequest request) {
@@ -34,8 +34,8 @@ public class AuthController {
     @PostMapping("/register")
     @Operation(summary = "Registrar usuario (rol EDITOR por defecto)")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Registrado exitosamente"),
-        @ApiResponse(responseCode = "400", description = "Email ya en uso o datos inválidos")
+            @ApiResponse(responseCode = "200", description = "Registrado exitosamente"),
+            @ApiResponse(responseCode = "400", description = "Email ya en uso o datos inválidos")
     })
     public ResponseEntity<?> register(
             @Valid @RequestBody AuthDtos.RegisterRequest request) {
